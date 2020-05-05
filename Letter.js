@@ -3,7 +3,7 @@ function Letter(char) {
     // A string value to store the underlying character for the letter
     this.underlyingChar = char;
     // A boolean value that stores whether that letter has been guessed yet
-    this.hasBeenGuessed = false;
+    this.hasBeenGuessed = !/[a-z1-9]/i.test(char);
     // A function that returns the underlying character if the letter has been guessed, or a placeholder (like an underscore) if the letter has not been guessed
     this.displayUnderscoreOrCharacter = function() {
         if (this.hasBeenGuessed) {
@@ -20,13 +20,13 @@ function Letter(char) {
     };
 }
 
-let test = new Letter("y");
+// let test = new Letter("y");
 // console.log(test);
 // console.log(test.underlyingChar);
-console.log(test.hasBeenGuessed);
-test.displayUnderscoreOrCharacter();
-test.checkForMatch("y");
-test.displayUnderscoreOrCharacter();
-console.log(test.hasBeenGuessed);
+// console.log(test.hasBeenGuessed);
+// test.displayUnderscoreOrCharacter();
+// test.checkForMatch("y");
+// test.displayUnderscoreOrCharacter();
+// console.log(test.hasBeenGuessed);
 
-
+module.exports = Letter;
