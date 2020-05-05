@@ -14,19 +14,13 @@ function Letter(char) {
     };
     // A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
     this.checkForMatch = function(character) {
-        if (this.underlyingChar === character) {
+        if (this.underlyingChar.toUpperCase() === character.toUpperCase()) {
             this.hasBeenGuessed = true;
-        };
+            return true;
+        }
+        return false;
     };
 }
 
-// let test = new Letter("y");
-// console.log(test);
-// console.log(test.underlyingChar);
-// console.log(test.hasBeenGuessed);
-// test.displayUnderscoreOrCharacter();
-// test.checkForMatch("y");
-// test.displayUnderscoreOrCharacter();
-// console.log(test.hasBeenGuessed);
 
 module.exports = Letter;

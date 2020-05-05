@@ -15,16 +15,14 @@ function Word(word) {
     }
     // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
     this.guessLetter = function(char) {
-        
+        let foundMatch = false;
         this.letters.forEach(letter => {
-            letter.checkForMatch(char);
+           if (letter.checkForMatch(char)) {
+               foundMatch = true;
+           };
         });
+        return foundMatch;
     }
 }
-
-// let testWord = new Word("apple");
-// console.log(testWord.buildString());
-// testWord.guessLetter("a");
-// console.log(testWord.buildString());
 
 module.exports = Word;
